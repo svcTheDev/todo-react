@@ -8,7 +8,7 @@ export const TodoForm = ({getTaskInfo}) => {
     const [nextId, setNextId] = useState(0);
 
     function deleteItem () {
-      
+
     }
 
     function getTask (e) {
@@ -25,9 +25,9 @@ export const TodoForm = ({getTaskInfo}) => {
     function handleSubmit(e) {
       e.preventDefault(); 
       setNextId(nextId + 1)
-
+      console.log(nextId);
       const newTask = [...userTask,
-        { taskName: inputTask, taskDate: inputDate, id: setNextId }]
+        { taskName: inputTask, taskDate: inputDate, id: nextId }]
     
       setUserTask(newTask);
 
