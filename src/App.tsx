@@ -1,14 +1,13 @@
 import { Fragment } from 'react/jsx-runtime';
 import Header from  './components/Header';
-import { TodoForm } from  './components/TodoForm';
+import { TodoForm, NewTask} from  './components/TodoForm';
 import { useState } from "react";
 
 
 const App = () => {
-    const [task, setTask] = useState([]);
-
+    const [task, setTask] = useState([{}]);
     
-    function getTaskInfo(t) {
+    function getTaskInfo(t : NewTask[]) {
             setTask(t);
    
         }

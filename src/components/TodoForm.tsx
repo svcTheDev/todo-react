@@ -1,38 +1,49 @@
 import { useState } from "react";
 
+export interface NewTask { 
+  taskName: string
+  taskDate: string;
+  id: number;
+} 
 
-export const TodoForm = ({getTaskInfo, task}) => {
-    const [inputTask, setInputTask] = useState([]);
-    const [inputDate, setInputDate] = useState([]);
+interface TodoFormProps {
+  getTaskInfo: (newTask: NewTask[]) => void;  // función que recibe un array y no devuelve nada
+  task: NewTask[];                          // el array en sí
+}
+// type ObjNewTask = Array<{ task: obj }>;
+
+
+
+
+export const TodoForm = ({getTaskInfo, task} : TodoFormProps) => {
+    const [inputTask, setInputTask]  = useState('');
+    const [inputDate, setInputDate] = useState('');
     const [nextId, setNextId] = useState(0);
 
-
-    function getTask (e) {
-
+    function getTask (e : React.ChangeEvent<HTMLInputElement>) {
       setInputTask(e.target.value);
 
     }
 
-    function getDate (e) {
-      
-      setInputDate(e.target.value);
+    function getDate (e : React.ChangeEvent<HTMLInputElement>) {
+    
+        setInputDate(e.target.value);
     }
 
-    function handleSubmit(e) {
+    function handleSubmit(e : React.FormEvent<HTMLFormElement>) {
       e.preventDefault(); 
       setNextId(nextId + 1)
 
-      const newTask = [...task,
-        { taskName: inputTask, taskDate: inputDate, id: nextId }]
+      const newTask : NewTask[] = [ ...task,
+        { taskName: inputTask, taskDate: inputDate, id: nextId } ];
     
-
       getTaskInfo(newTask);
 
       setInputTask('');
       setInputDate('');
     }
 
- 
+ // FormEvent<HTMLFormElement>
     return (
       <form onSubmit={handleSubmit} action="">
 
