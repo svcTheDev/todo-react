@@ -6,7 +6,6 @@ import { useState } from "react";
 
 const App = () => {
     const [task, setTask] = useState([]);
-    // let newTask = [];
 
     
     function getTaskInfo(t) {
@@ -15,7 +14,9 @@ const App = () => {
         }
     
     function deleteItem (id: number) {
-        console.log(id);
+
+        const result = task.filter(task => task.id !== id);
+        setTask(result)
     }
 
     const taskList =  
@@ -34,9 +35,9 @@ const App = () => {
     return (
         <>
             <Header />
-            <TodoForm getTaskInfo={getTaskInfo}/>
+            <TodoForm getTaskInfo={getTaskInfo} task={task}/>
 
-            <h1>List</h1>   
+            <h1>Lista</h1>   
             <div>{taskList}</div>
 
         </>
