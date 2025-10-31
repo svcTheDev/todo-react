@@ -1,0 +1,33 @@
+body { margin: 0; display: flex; align-items: center; justify-content: center; background-image:radial-gradient(#dff9fb 20%, #9dc7c9);}
+
+p{ 
+    margin: 0;
+}
+
+h1 { border-radius: 10px; padding: 1em 0.2em 0.2em 0.2em; text-align: center; color: rgb(0, 0, 0);} 
+input { margin-right: 1em;}
+
+.todo { text-align: left; display: flex; flex-direction: column; border-radius: 7px; box-shadow: 0px 0px 14px -10px #30336b, 0px 20px 20px -20px #130f40; background-color: #fff; overflow: hidden; margin-top: 1em; color:#12111c; }
+.todo div {display: flex; border-bottom: solid 1px #eee; padding: 1em 2em 1em 4em; cursor: pointer; user-select: none; align-items: center;  }
+.todo div:hover { background-image: linear-gradient(#dcf3f4, #fff);}
+
+
+.todo div:has(input:checked) {
+  color: rgba(0,0,0,0.4)
+}
+.todo div input, p, button {
+    padding: 0 2rem;
+}
+
+button {
+    color: black;
+    font-size: 7px;
+    padding: 1px 3px;
+    border-width: 1px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #06e4f0;
+    color: white;
+}
