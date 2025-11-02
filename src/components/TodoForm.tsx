@@ -7,13 +7,9 @@ export interface NewTask {
 } 
 
 interface TodoFormProps {
-  getTaskInfo: (newTask: NewTask[]) => void;  // función que recibe un array y no devuelve nada
-  task: NewTask[];                          // el array en sí
+  getTaskInfo: (newTask: NewTask[]) => void;  
+  task: NewTask[];                         
 }
-// type ObjNewTask = Array<{ task: obj }>;
-
-
-
 
 export const TodoForm = ({getTaskInfo, task} : TodoFormProps) => {
     const [inputTask, setInputTask]  = useState('');
@@ -43,7 +39,6 @@ export const TodoForm = ({getTaskInfo, task} : TodoFormProps) => {
       setInputDate('');
     }
 
- // FormEvent<HTMLFormElement>
     return (
       <form onSubmit={handleSubmit} action="">
 
